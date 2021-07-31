@@ -1,0 +1,58 @@
+{
+	"info": {
+		"_postman_id": "a6769749-243d-4ad5-8c1f-e4ff7346e171",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://api.spacexdata.com/v4/launches/latest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status cod is 200\",function()\r",
+							"{\r",
+							"    pm.response.to.have\r",
+							"}\r",
+							")\r",
+							"\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"flight_number\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Person is name\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.name).to.eql(\"Transporter-2\");\r",
+							" \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.spacexdata.com/v4/launches/latest",
+					"protocol": "https",
+					"host": [
+						"api",
+						"spacexdata",
+						"com"
+					],
+					"path": [
+						"v4",
+						"launches",
+						"latest"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
